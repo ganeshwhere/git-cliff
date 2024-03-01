@@ -7,8 +7,7 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Head from "@docusaurus/Head";
 import styles from "./index.module.css";
 
-function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
+function HomepageHeader({ siteConfig }) {
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
@@ -26,48 +25,27 @@ function HomepageHeader() {
   );
 }
 
-export default function Home(): JSX.Element {
+export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout
-      title={`${siteConfig.tagline}`}
-      description={`${siteConfig.tagline}`}
-    >
+    <Layout title={siteConfig.tagline} description={siteConfig.tagline}>
       <Head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${siteConfig.url}`} />
-        <meta property="og:title" content={`${siteConfig.title}`} />
-        <meta property="og:description" content={`${siteConfig.tagline}`} />
+        <meta property="og:url" content={siteConfig.url} />
+        <meta property="og:title" content={siteConfig.title} />
+        <meta property="og:description" content={siteConfig.tagline} />
         <meta property="og:image" content="/img/git-cliff-social-card.jpg" />
-        <meta name="description" content={`${siteConfig.tagline}`} />
+        <meta name="description" content={siteConfig.tagline} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/favicon/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon/favicon-16x16.png"
-        />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
-        <script
-          async
-          src="https://umami.orhun.dev/script.js"
-          data-website-id="f75484b0-d2a4-4a0c-a560-cb58080e2f2e"
-        ></script>
+        <script async src="https://umami.orhun.dev/script.js" data-website-id="f75484b0-d2a4-4a0c-a560-cb58080e2f2e"></script>
       </Head>
-      <HomepageHeader />
+      <HomepageHeader siteConfig={siteConfig} />
       <main>
         <HomepageFeatures />
       </main>
